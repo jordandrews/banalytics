@@ -1,0 +1,225 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Banalytics.GG</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-69273417-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body class="red darken-3">
+  <nav class="red darken-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Banalytics.GG</a>
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <a href="#"></a>
+        </li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">More</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot col s12" id="index-banner">
+    <div class="container">
+      <br>
+      <h1 class="header center my-green-text">Banalytics.GG</h1>
+      <h5 class="black-text center">Ban recommendations for ranked players</h5>
+      <form class="summoner-search">
+        <div class="row center">
+          <div class="input-field col m4 s8 offset-m3">
+            <i class="material-icons prefix">&#xE84E;</i>
+            <input id="summoner_name" class="red-text" type="text" name="summonerName" />
+            <label for="summoner_name">Summoner Name</label>
+          </div>
+          <div class="input-field col m2 s4">
+            <select class="my-green-text" name="region">
+              <option value="na" selected>NA</option>
+              <option value="euw">EUW</option>
+              <option value="eune">EUE</option>
+              <option value="oce">OCE</option>
+              <option value="br">BR</option>
+              <option value="kr">KR</option>
+              <option value="las">LAS</option>
+              <option value="lan">LAN</option>
+              <option value="tr">TR</option>
+              <option value="ru">RU</option>
+            </select>
+            <label>Region</label>
+          </div>
+        </div>
+        <div class="row center">
+          <button id="download-button" class="btn-large waves-effect waves-light my-green"><i class="material-icons right"><i class="material-icons"><i class="material-icons">&#xE15E;</i></i>
+            </i>Crunch Data!</button>
+        </div>
+      </form>
+      <br>
+      <br>
+
+    </div>
+  </div>
+  <div id="loading-spinner-container" class="section center white">
+  <div id="loading-spinner" class="white preloader-wrapper big active row center">
+    <div class="spinner-layer spinner-blue">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+
+    <div class="spinner-layer spinner-red">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+
+    <div class="spinner-layer spinner-yellow">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+
+    <div class="spinner-layer spinner-green">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="ban-list" class="section">
+  <div class="card hoverable">
+    <div class="summoner-card my-green lighten-1 z-depth-1">
+      <img class="circle" width="64" height="64" src="http://ddragon.leagueoflegends.com/cdn/5.17.1/img/profileicon/588.png" />
+      <h1 class="">{{summonerName}}</h1><span class="region-badge z-depth-1">OCE</span>
+    </div>
+    <div class="container">
+      <h5 class="win-rate-string black-text center">Win rates against all champions for the past {{gameNum}} solo queue games:</h5>
+    </div>
+  <div class="row">
+    <div class="collection-container col m4 s12">
+      <div class="collection with-header">
+        <ul>
+          <li class="collection-header center">
+            <i class="material-icons red-text">&#xE033;</i><h5 class="red-text">Ban</h5></li>
+          {{#each champsToBan}} {{> champToBan}} {{/each}}
+        </ul>
+      </div>
+      <div class="collection with-header s12">
+        <ul>
+          <li class="collection-header center">
+            <i class="material-icons my-green-text">&#xE5CA;</i><h5 class="my-green-text">Leave Open</h5></li>
+          {{#each champsToKeep}} {{> champToKeep}} {{/each}}
+        </ul>
+      </div>
+    </div>
+    <div class="collection col m2 s6">
+      {{#each allChamps1}} {{> miniChamp}} {{/each}}
+    </div>
+    <div class="collection col m2 s6">
+      {{#each allChamps2}} {{> miniChamp}} {{/each}}
+    </div>
+    <div class="collection col m2 s6">
+      {{#each allChamps3}} {{> miniChamp}} {{/each}}
+    </div>
+    <div class="collection col m2 s6">
+      {{#each allChamps4}} {{> miniChamp}} {{/each}}
+    </div>
+  <!-- </div> -->
+  </div>
+  </div>
+</div>
+  <footer class="page-footer no-pad-top red darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <h5 class="white-text">About</h5>
+          <p class="white-text">Banalytics.GG analyses your match history and delivers personalised win rates and ban reccomendations
+             based on which champions you've been losing to. Feel like you always get grabbed by Blitzcrank? Now you can know for sure.
+          </p>
+          <p class="white-text">
+          Banalytics.GG isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
+          </p>
+          <h5 class="white-text">Contact</h5>
+          <p class="white-text">
+            To get in touch contact the team at: banalyticsgg@gmail.com
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+
+</body>
+
+
+<template name="champToBan">
+  <li class="collection-item avatar champ-item">
+    <img src="{{imageUrl}}" alt="" class="circle">
+    <span class="title">{{name}}</span>
+    <p class="champion-percentage red-text">
+      {{percentage}}
+    </p>
+    <p class="champion-win-loss"> {{wins}} W / {{losses}} L
+    </p>
+  </li>
+</template>
+
+<template name="champToKeep">
+  <li class="collection-item avatar champ-item">
+    <img src="{{imageUrl}}" alt="" class="circle">
+    <span class="title">{{name}}</span>
+    <p class="champion-percentage my-green-text">
+      {{percentage}}
+    </p>
+    <p class="champion-win-loss"> {{wins}} W / {{losses}} L
+    </p>
+  </li>
+</template>
+
+<template name="miniChamp">
+  <li class="collection-item avatar mini-champ-item tooltipped" data-position="left" data-delay="50" data-tooltip="{{name}} {{wins}}W/{{losses}}L">
+    <img src="{{imageUrl}}" width="10" height="10" alt="" class="circle">
+    <p class="champion-percentage">
+      {{percentage}}
+    </p>
+  </li>
+</template>

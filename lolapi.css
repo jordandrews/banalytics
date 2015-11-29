@@ -1,0 +1,174 @@
+/* CSS declarations go here */
+
+h1.header {
+  font-size: 3rem;
+}
+
+#ban-list {
+  display: none;
+  background-color: #ffffff;
+}
+
+#ban-list .card {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#loading-spinner {
+  background-color: #fff;
+}
+#loading-spinner-container {
+  display: none;
+  background-color: #fff;
+}
+
+#index-banner {
+  min-height: 400px;
+  height: 60%;
+  background-color: #ffffff;
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #209E20;
+  box-shadow: 0 1px 0 0 #209E20;
+}
+
+.select-wrapper, .input-field input[type=text], .input-field label {
+  font-weight: 800;
+}
+
+.input-field .prefix.active, .input-field label {
+  color: #209E20 !important;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #209E20 !important;
+}
+
+.page-footer.no-pad-top {
+  margin-top: 0px;
+  height: 30%;
+}
+
+.my-green {
+  background-color: #209E20 !important;
+}
+
+.my-green-text {
+  color: #209E20 !important;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+span.badge.new:after {
+  content: "" !important;
+}
+
+.header-icon {
+  font-size: 36px !important;
+  display: inline;
+}
+
+.summoner-card h1 {
+  display: inline !important;
+  color: #fff !important;
+  margin-left: 15px;
+}
+
+@media only screen and (min-device-width: 320px){
+  .summoner-card h1 {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (min-device-width: 600px){
+  .summoner-card h1 {
+    font-size: 48px;
+  }
+}
+
+@media only screen and (min-device-width: 800px){
+  .summoner-card h1 {
+    font-size: 64px;
+  }
+}
+
+.summoner-card {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 0.5%;
+}
+
+.summoner-card .circle {
+  margin-bottom: -8px;
+  margin-left: 20px;
+}
+
+.region-badge {
+  font-weight: 600;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #F44336;
+    border-radius: 2px;
+    display: inline;
+    float: right;
+    padding: 5px;
+    margin-top: 16px;
+    margin-right: 20px;
+}
+
+.collection .champion-percentage {
+  position: absolute;
+  right: 5%;
+  top: 35%;
+  font-size: 24px;
+}
+
+.collection .champ-item {
+  min-height:initial !important;
+}
+
+.collection-container {
+  padding: 2%;
+}
+
+.collection-header {
+  padding: 0 !important;
+}
+
+.champ-item {
+  color: #000;
+}
+
+.collection .mini-champ-item.avatar {
+  min-height: 30px;
+  list-style-type: none;
+}
+
+.collection .mini-champ-item.avatar .circle {
+  width: 28px;
+  height: 28px;
+  top: 0px;
+}
+
+.collection .mini-champ-item.avatar .champion-percentage {
+  font-size: 18px;
+  top: 15%;
+}
+#ban-list .collection-header i {
+  position: absolute;
+  left: 5%;
+}
+
+.win-rate-string {
+  font-weight: bold;
+  margin: 15px 0px;
+}
+
+/*.collection.col.s2 {
+  margin-right: 0.2%;
+  margin-left: 0.2%;
+}*/
